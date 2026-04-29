@@ -16,7 +16,7 @@
     "vscode": "^1.116.0"
   },
   "categories": [
-    "Source Control",
+    "SCM Providers",
     "Other"
   ],
   "keywords": [

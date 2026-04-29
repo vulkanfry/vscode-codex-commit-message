@@ -34,6 +34,7 @@ test("VS Code settings expose every TOML config leaf", () => {
 
 test("package metadata is ready for marketplace publishing", () => {
   assert.equal(packageJson.publisher, "vulkanfry");
+  assert.deepEqual(packageJson.categories, ["SCM Providers", "Other"]);
   assert.deepEqual(packageJson.author, {
     name: "Vladimir Sidorenko",
     email: "vulkanfry@lunatic.cat",
