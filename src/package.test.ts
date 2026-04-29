@@ -31,3 +31,25 @@ test("VS Code settings expose every TOML config leaf", () => {
     "codexCommitMessage.timeoutMs",
   ].sort());
 });
+
+test("package metadata is ready for marketplace publishing", () => {
+  assert.equal(packageJson.publisher, "vulkanfry");
+  assert.deepEqual(packageJson.author, {
+    name: "Vladimir Sidorenko",
+    email: "vulkanfry@lunatic.cat",
+    url: "https://github.com/vulkanfry",
+  });
+  assert.deepEqual(packageJson.repository, {
+    type: "git",
+    url: "https://github.com/vulkanfry/vscode-codex-commit-message.git",
+  });
+  assert.equal(
+    packageJson.homepage,
+    "https://github.com/vulkanfry/vscode-codex-commit-message#readme",
+  );
+  assert.equal(
+    packageJson.bugs.url,
+    "https://github.com/vulkanfry/vscode-codex-commit-message/issues",
+  );
+  assert.equal(packageJson.pricing, "Free");
+});

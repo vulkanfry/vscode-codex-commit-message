@@ -2,8 +2,13 @@
   "name": "codex-commit-message",
   "displayName": "Codex Commit Message",
   "description": "Generate Git commit messages from the VS Code Source Control input box with Codex CLI.",
-  "version": "0.1.3",
-  "publisher": "local",
+  "version": "0.1.4",
+  "publisher": "vulkanfry",
+  "author": {
+    "name": "Vladimir Sidorenko",
+    "email": "vulkanfry@lunatic.cat",
+    "url": "https://github.com/vulkanfry"
+  },
   "license": "UNLICENSED",
   "private": true,
   "packageManager": "bun@1.3.11",
@@ -14,6 +19,22 @@
     "Source Control",
     "Other"
   ],
+  "keywords": [
+    "codex",
+    "commit",
+    "commit-message",
+    "git",
+    "source-control"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vulkanfry/vscode-codex-commit-message.git"
+  },
+  "homepage": "https://github.com/vulkanfry/vscode-codex-commit-message#readme",
+  "bugs": {
+    "url": "https://github.com/vulkanfry/vscode-codex-commit-message/issues"
+  },
+  "pricing": "Free",
   "activationEvents": [
     "onCommand:codexCommitMessage.generate",
     "onCommand:codexCommitMessage.openConfig"
