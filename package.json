@@ -2,7 +2,7 @@
   "name": "codex-commit-message",
   "displayName": "Codex Commit Message",
   "description": "Generate Git commit messages from the VS Code Source Control input box with Codex CLI.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "vulkanfry",
   "author": {
     "name": "Vladimir Sidorenko",
@@ -19,6 +19,11 @@
     "SCM Providers",
     "Other"
   ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#0f141b",
+    "theme": "dark"
+  },
   "keywords": [
     "codex",
     "commit",
