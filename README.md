@@ -2,7 +2,7 @@
 
 Adds a Source Control action that uses Codex CLI to generate a Git commit message from the current diff.
 
-The command is available from the stable Source Control title toolbar, the Source Control repository menu, and the Command Palette. It reads staged changes first by default, falls back to the working tree when nothing is staged, and writes the generated message into the active Git repository commit input.
+The command is available from the stable Source Control title toolbar as a terminal icon, the Source Control repository menu, and the Command Palette. It reads staged changes first by default, falls back to the working tree when nothing is staged, and writes the generated message into the active Git repository commit input.
 
 VS Code's `scm/inputBox` menu, the exact slot used by Copilot's commit-message sparkle button, is still proposed API for third-party extensions. This extension avoids that proposed API so it works after normal installation without launching VS Code with `--enable-proposed-api`.
 
