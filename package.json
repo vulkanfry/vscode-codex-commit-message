@@ -35,11 +35,18 @@
       }
     ],
     "menus": {
-      "scm/inputBox": [
+      "scm/title": [
         {
           "command": "codexCommitMessage.generate",
           "when": "scmProvider == git",
-          "group": "navigation@2"
+          "group": "navigation@0"
+        }
+      ],
+      "scm/sourceControl": [
+        {
+          "command": "codexCommitMessage.generate",
+          "when": "scmProvider == git",
+          "group": "3_codex@1"
         }
       ],
       "commandPalette": [
