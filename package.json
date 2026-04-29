@@ -1,0 +1,136 @@
+{
+  "name": "codex-commit-message",
+  "displayName": "Codex Commit Message",
+  "description": "Generate Git commit messages from the VS Code Source Control input box with Codex CLI.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "UNLICENSED",
+  "private": true,
+  "packageManager": "bun@1.3.11",
+  "engines": {
+    "vscode": "^1.116.0"
+  },
+  "categories": [
+    "Source Control",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:codexCommitMessage.generate",
+    "onCommand:codexCommitMessage.openConfig"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codexCommitMessage.generate",
+        "title": "Generate Commit Message with Codex",
+        "category": "Codex",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "codexCommitMessage.openConfig",
+        "title": "Open Commit Message Config",
+        "category": "Codex",
+        "icon": "$(settings-gear)"
+      }
+    ],
+    "menus": {
+      "scm/inputBox": [
+        {
+          "command": "codexCommitMessage.generate",
+          "when": "scmProvider == git",
+          "group": "navigation@2"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "codexCommitMessage.generate",
+          "when": "scmProvider == git || workspaceFolderCount > 0"
+        },
+        {
+          "command": "codexCommitMessage.openConfig"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Codex Commit Message",
+      "properties": {
+        "codexCommitMessage.codexPath": {
+          "type": "string",
+          "default": "codex",
+          "description": "Fallback path to the Codex CLI executable. TOML key: codex.path."
+        },
+        "codexCommitMessage.configPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional TOML config path. Supports ~. Empty uses ~/.config/codex-commit-message/config.toml plus workspace .codex-commit-message.toml."
+        },
+        "codexCommitMessage.model": {
+          "type": "string",
+          "default": "",
+          "description": "Fallback Codex model override. TOML key: codex.model."
+        },
+        "codexCommitMessage.timeoutMs": {
+          "type": "number",
+          "default": 120000,
+          "minimum": 10000,
+          "description": "Fallback maximum time to wait for Codex CLI commit-message generation. TOML key: codex.timeout_ms."
+        },
+        "codexCommitMessage.reasoningEffort": {
+          "type": "string",
+          "enum": [
+            "",
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ],
+          "default": "low",
+          "description": "Fallback model_reasoning_effort override passed to Codex CLI. TOML key: codex.reasoning_effort."
+        },
+        "codexCommitMessage.maxDiffBytes": {
+          "type": "number",
+          "default": 200000,
+          "minimum": 1000,
+          "description": "Fallback maximum diff size sent to Codex CLI. TOML key: codex.max_diff_bytes."
+        },
+        "codexCommitMessage.diffMode": {
+          "type": "string",
+          "enum": [
+            "stagedOrWorkingTree",
+            "staged",
+            "workingTree"
+          ],
+          "default": "stagedOrWorkingTree",
+          "description": "Fallback Git diff selection. TOML key: codex.diff_mode."
+        },
+        "codexCommitMessage.ignoreRules": {
+          "type": "boolean",
+          "default": true,
+          "description": "Fallback value for passing --ignore-rules to Codex CLI. TOML key: codex.ignore_rules."
+        },
+        "codexCommitMessage.conventionalCommits": {
+          "type": "boolean",
+          "default": true,
+          "description": "Fallback Conventional Commits preference. TOML key: message.conventional_commits."
+        },
+        "codexCommitMessage.additionalInstructions": {
+          "type": "string",
+          "default": "",
+          "description": "Fallback extra instructions appended to the Codex commit-message prompt. TOML key: codex.additional_instructions."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "test": "bun test src/**/*.test.ts",
+    "package": "bun run compile && vsce package --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.24",
+    "@types/vscode": "1.116.0",
+    "@vscode/vsce": "3.9.1",
+    "typescript": "5.9.3"
+  }
+}

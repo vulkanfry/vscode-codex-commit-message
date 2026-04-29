@@ -1,0 +1,26 @@
+# Codex Commit Message configuration
+
+[codex]
+path = "codex"
+model = ""
+reasoning_effort = "low"
+timeout_ms = 120000
+max_diff_bytes = 200000
+diff_mode = "staged_or_working_tree"
+ignore_rules = true
+ignore_user_config = false
+additional_instructions = ""
+
+[message]
+# summary: prefer one concise subject, body only when useful.
+# expanded: ask for subject plus explanatory body.
+mode = "summary"
+conventional_commits = true
+language = "auto"
+include_body = "auto"
+max_subject_chars = 72
+
+# Adds a footer to the generated message after Codex returns it.
+generated_by = false
+generated_by_author = "git_author"
+generated_by_format = "Generated via Codex Commit Message by {author}"
