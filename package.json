@@ -2,7 +2,7 @@
   "name": "codex-commit-message",
   "displayName": "Codex Commit Message",
   "description": "Generate Git commit messages from the VS Code Source Control input box with Codex CLI.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "local",
   "license": "UNLICENSED",
   "private": true,
