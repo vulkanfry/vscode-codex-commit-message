@@ -49,6 +49,8 @@ generated_by_format = "Generated via Codex Commit Message by {author}"
 
 Set `message.mode = "expanded"` and `message.include_body = "always"` when you want a subject plus body. Set `message.generated_by = true` to append the configured attribution footer after Codex returns the message.
 
+Every TOML leaf also has a matching VS Code setting under `codexCommitMessage.*`. TOML remains useful for sharing repo-local defaults, while VS Code settings are convenient for user-level overrides.
+
 ## Development
 
 ```bash

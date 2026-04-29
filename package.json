@@ -2,7 +2,7 @@
   "name": "codex-commit-message",
   "displayName": "Codex Commit Message",
   "description": "Generate Git commit messages from the VS Code Source Control input box with Codex CLI.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "local",
   "license": "UNLICENSED",
   "private": true,
@@ -116,10 +116,60 @@
           "default": true,
           "description": "Fallback value for passing --ignore-rules to Codex CLI. TOML key: codex.ignore_rules."
         },
+        "codexCommitMessage.ignoreUserConfig": {
+          "type": "boolean",
+          "default": false,
+          "description": "Fallback value for passing --ignore-user-config to Codex CLI. TOML key: codex.ignore_user_config."
+        },
+        "codexCommitMessage.messageMode": {
+          "type": "string",
+          "enum": [
+            "summary",
+            "expanded"
+          ],
+          "default": "summary",
+          "description": "Fallback commit-message mode. summary prefers a concise subject; expanded asks for a subject plus body. TOML key: message.mode."
+        },
         "codexCommitMessage.conventionalCommits": {
           "type": "boolean",
           "default": true,
           "description": "Fallback Conventional Commits preference. TOML key: message.conventional_commits."
+        },
+        "codexCommitMessage.language": {
+          "type": "string",
+          "default": "auto",
+          "description": "Fallback generated commit-message language, for example auto, en, or ru. TOML key: message.language."
+        },
+        "codexCommitMessage.includeBody": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "always",
+            "never"
+          ],
+          "default": "auto",
+          "description": "Fallback body policy for generated commit messages. TOML key: message.include_body."
+        },
+        "codexCommitMessage.maxSubjectChars": {
+          "type": "number",
+          "default": 72,
+          "minimum": 20,
+          "description": "Fallback preferred maximum subject length. TOML key: message.max_subject_chars."
+        },
+        "codexCommitMessage.generatedBy": {
+          "type": "boolean",
+          "default": false,
+          "description": "Fallback toggle for appending a generated-by footer. TOML key: message.generated_by."
+        },
+        "codexCommitMessage.generatedByAuthor": {
+          "type": "string",
+          "default": "git_author",
+          "description": "Fallback footer author. Use git_author, git_user, or a literal string like @vulkanfry. TOML key: message.generated_by_author."
+        },
+        "codexCommitMessage.generatedByFormat": {
+          "type": "string",
+          "default": "Generated via Codex Commit Message by {author}",
+          "description": "Fallback generated-by footer template. {author} is replaced with the resolved author. TOML key: message.generated_by_format."
         },
         "codexCommitMessage.additionalInstructions": {
           "type": "string",

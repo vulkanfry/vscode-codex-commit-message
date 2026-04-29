@@ -172,10 +172,18 @@ function readVsCodeFallbackConfig(): PartialCodexCommitConfig {
       maxDiffBytes: config.get("maxDiffBytes", DEFAULT_CONFIG.codex.maxDiffBytes),
       diffMode: config.get("diffMode", DEFAULT_CONFIG.codex.diffMode),
       ignoreRules: config.get("ignoreRules", DEFAULT_CONFIG.codex.ignoreRules),
+      ignoreUserConfig: config.get("ignoreUserConfig", DEFAULT_CONFIG.codex.ignoreUserConfig),
       additionalInstructions: config.get("additionalInstructions", DEFAULT_CONFIG.codex.additionalInstructions),
     },
     message: {
+      mode: config.get("messageMode", DEFAULT_CONFIG.message.mode),
       conventionalCommits: config.get("conventionalCommits", DEFAULT_CONFIG.message.conventionalCommits),
+      language: config.get("language", DEFAULT_CONFIG.message.language),
+      includeBody: config.get("includeBody", DEFAULT_CONFIG.message.includeBody),
+      maxSubjectChars: config.get("maxSubjectChars", DEFAULT_CONFIG.message.maxSubjectChars),
+      generatedBy: config.get("generatedBy", DEFAULT_CONFIG.message.generatedBy),
+      generatedByAuthor: config.get("generatedByAuthor", DEFAULT_CONFIG.message.generatedByAuthor),
+      generatedByFormat: config.get("generatedByFormat", DEFAULT_CONFIG.message.generatedByFormat),
     },
   };
 }
